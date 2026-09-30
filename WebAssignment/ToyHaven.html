@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Toy Haven - Collectible figurines, board games, toys, and diecast model cars.">
+  <title>Toyhaven</title>
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4A90E2">
+
+  <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+  <header class="site-header">
+        <div class="header-container">
+            <a href="ToyHaven.html" class="logo">Toy<span>Haven</span></a>
+            
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="ToyHaven.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="cart.html">Cart <span id="cart-count-badge" class="badge">0</span></a></li>
+                    <li><a href="feedback.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Section Banner Carousel -->
+        <section class="hero-carousel" aria-label="Promotional Banners">
+            <div class="carousel-slide fade active">
+                <img src="AnimeCatgirl.webp" class="img-fit-adjust" alt="Exclusive Anime and Superhero Figurines Collection">
+                <div class="carousel-caption">
+                    <h2>Premium Collectible Figurines</h2>
+                    <p>Discover rare releases and limited editions.</p>
+                    <a href="products.html" class="btn btn-primary">Shop Figurines</a>
+                </div>
+            </div>
+
+            <div class="carousel-slide fade">
+                <img src="2021 bat-tank.jpg" class="img-fit-adjust"  alt="Detailed Diecast Model Cars Display">
+                <div class="carousel-caption">
+                    <h2>Precision Diecast Cars</h2>
+                    <p>1:18 and 1:24 scale models built for true enthusiasts.</p>
+                    <a href="products.html" class="btn btn-primary">Shop Models</a>
+                </div>
+            </div>
+
+            <div class="carousel-slide fade">
+                <img src="Monopoly.jpg" alt="Family playing strategy board games">
+                <div class="carousel-caption">
+                    <h2>Strategy Board Games</h2>
+                    <p>Gather friends and family for epic game nights.</p>
+                    <a href="products.html" class="btn btn-primary">Explore Games</a>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <button class="prev-slide" id="prev-btn" aria-label="Previous Slide">&#10094;</button>
+            <button class="next-slide" id="next-btn" aria-label="Next Slide">&#10095;</button>
+        </section>
+
+        <!-- Featured Highlights -->
+        <section class="featured-section container">
+            <header class="section-header">
+                <h2>Featured Highlights</h2>
+                <p>Hand-picked collector favorites this month</p>
+            </header>
+
+            <div class="product-grid" id="featured-products-container">
+                <!-- Dynamically populated via JavaScript -->
+            </div>
+            
+            <div class="text-center margin-top">
+                <a href="products.html" class="btn btn-secondary">View All Products</a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-info">
+                <h3>Toy Haven</h3>
+                <p>Your ultimate destination for quality toys, collectibles, and games.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="ToyHaven.html">Home</a></li>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="wishlist.html">Your Wishlist</a></li>
+                    <li><a href="feedback.html">Feedback & Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe for rare stock alerts and special deals.</p>
+                <form id="newsletter-form">
+                    <label for="newsletter-email" class="visually-hidden">Email Address</label>
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p id="newsletter-message" aria-live="polite"></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Toy Haven. All Rights Reserved. COMP40053 Assignment.</p>
+        </div>
+    </footer>
+
+    <script src="ToyHaven.js"></script>
+</body>
+</html>
+  
+</body>
+</html>
