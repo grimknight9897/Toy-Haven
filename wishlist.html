@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your saved wishlist items and mark items you own.">
+    <title>Toy Haven | Wishlist & Collection</title>
+    
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">Toy<span>Haven</span></a>
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="wishlist.html" class="active">Wishlist</a></li>
+                    <li><a href="cart.html">Cart <span id="cart-count-badge" class="badge">0</span></a></li>
+                    <li><a href="feedback.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>My Collection & Wishlist</h1>
+            <p>Track collector items by status: <em>Interested</em>, <em>Owned</em>, or <em>Not Interested</em>.</p>
+        </header>
+
+        <section aria-label="Wishlist Items Grid">
+            <div class="product-grid" id="wishlist-container">
+                <!-- Dynamically populated via JS -->
+            </div>
+            <div id="empty-wishlist-msg" class="hidden text-center">
+                <p>You haven't added any products to your collection tracker yet.</p>
+                <a href="products.html" class="btn btn-primary">Browse Catalog</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-info">
+                <h3>Toy Haven</h3>
+                <p>Your ultimate destination for quality toys, collectibles, and games.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="wishlist.html">Your Wishlist</a></li>
+                    <li><a href="feedback.html">Feedback & Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <form id="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-label="Email address for newsletter">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Toy Haven. All Rights Reserved. COMP40053 Assignment.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

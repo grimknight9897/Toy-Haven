@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete your purchase securely at Toy Haven.">
+    <title>Toy Haven | Checkout</title>
+    
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">Toy<span>Haven</span></a>
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="cart.html">Cart <span id="cart-count-badge" class="badge">0</span></a></li>
+                    <li><a href="feedback.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Checkout</h1>
+        </header>
+
+        <div class="checkout-layout">
+            <!-- Checkout Form -->
+            <section class="checkout-form-container">
+                <h2>Shipping & Payment Details</h2>
+                <form id="checkout-form" novalidate>
+                    <div class="form-group">
+                        <label for="fullname">Full Name *</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                        <span class="error-msg" id="fullname-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-msg" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Delivery Address *</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                        <span class="error-msg" id="address-error"></span>
+                    </div>
+
+                    <fieldset class="form-group">
+                        <legend>Payment Method *</legend>
+                        <div class="radio-option">
+                            <input type="radio" id="payment-card" name="payment" value="Card" checked>
+                            <label for="payment-card">Credit / Debit Card</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="payment-cod" name="payment" value="Cash on Delivery">
+                            <label for="payment-cod">Cash on Delivery</label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn btn-primary block-btn">Confirm & Complete Order</button>
+                </form>
+            </section>
+
+            <!-- Checkout Order Summary -->
+            <aside class="checkout-summary">
+                <h2>Order Breakdown</h2>
+                <ul id="checkout-items-list" class="checkout-items-list">
+                    <!-- Populated dynamically -->
+                </ul>
+                <hr>
+                <div class="summary-row total-row">
+                    <span>Final Amount Due:</span>
+                    <span id="checkout-final-total">$0.00</span>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Success Modal / Overlay -->
+        <div id="checkout-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-content animate-pop">
+                <h2 id="modal-title">🎉 Order Placed Successfully!</h2>
+                <p>Thank you for shopping at Toy Haven. Your order details have been saved.</p>
+                <p><strong>Order ID:</strong> <span id="modal-order-id"></span></p>
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-info">
+                <h3>Toy Haven</h3>
+                <p>Your ultimate destination for quality toys, collectibles, and games.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="wishlist.html">Your Wishlist</a></li>
+                    <li><a href="feedback.html">Feedback & Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <form id="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-label="Email address for newsletter">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Toy Haven. All Rights Reserved. COMP40053 Assignment.</p>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
