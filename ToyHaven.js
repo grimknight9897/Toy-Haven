@@ -777,3 +777,19 @@ function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
+
+// Service Worker for Toy Haven PWA
+self.addEventListener('install', (e) => {
+  console.log('[Service Worker] Installed');
+  self.skipWaiting(); // Force active status immediately
+});
+
+self.addEventListener('activate', (e) => {
+  console.log('[Service Worker] Activated');
+  return self.clients.claim();
+});
+
+self.addEventListener('fetch', (e) => {
+  // Pass request directly to the network
+  e.respondWith(fetch(e.request));
+});
