@@ -143,7 +143,7 @@ function initNavigation() {
  * Reusable utility function to get local storage cart contents
  */
 function getCartFromStorage() {
-  return JSON.parse(localStorage.getItem("toyHavenCart")) || [];
+  return JSON.parse(localStorage.getItem("indexCart")) || [];
 }
 
 /**
@@ -210,7 +210,7 @@ function initCarousel() {
  * Reusable function to create an interactive Product Card HTML string
  */
 function createProductCardHTML(product) {
-  const wishlist = JSON.parse(localStorage.getItem("toyHavenWishlist")) || {};
+  const wishlist = JSON.parse(localStorage.getItem("indexWishlist")) || {};
   const isWishlisted = wishlist[product.id] ? "Remove Wishlist" : "Wishlist";
 
   return `
@@ -306,13 +306,13 @@ function addToCartGlobal(productId) {
     cart.push({ id: productId, quantity: 1 });
   }
 
-  localStorage.setItem("toyHavenCart", JSON.stringify(cart));
+  localStorage.setItem("indexCart", JSON.stringify(cart));
   updateCartBadge();
   alert("Item added to cart!");
 }
 
 function toggleWishlistGlobal(productId, buttonElement) {
-  let wishlist = JSON.parse(localStorage.getItem("toyHavenWishlist")) || {};
+  let wishlist = JSON.parse(localStorage.getItem("indexWishlist")) || {};
 
   if (wishlist[productId]) {
     delete wishlist[productId];
@@ -322,7 +322,7 @@ function toggleWishlistGlobal(productId, buttonElement) {
     if (buttonElement) buttonElement.textContent = "Remove Wishlist";
   }
 
-  localStorage.setItem("toyHavenWishlist", JSON.stringify(wishlist));
+  localStorage.setItem("indexWishlist", JSON.stringify(wishlist));
 }
 
 /* --------------------------------------------------------------------------
@@ -333,7 +333,7 @@ function renderWishlistPage() {
   const emptyMsg = document.getElementById("empty-wishlist-msg");
   if (!container) return;
 
-  const wishlist = JSON.parse(localStorage.getItem("toyHavenWishlist")) || {};
+  const wishlist = JSON.parse(localStorage.getItem("indexWishlist")) || {};
   const wishlistedIds = Object.keys(wishlist);
 
   if (wishlistedIds.length === 0) {
@@ -380,10 +380,10 @@ function renderWishlistPage() {
     select.addEventListener("change", (e) => {
       const id = e.target.getAttribute("data-id");
       const newStatus = e.target.value;
-      const currentWishlist = JSON.parse(localStorage.getItem("toyHavenWishlist")) || {};
+      const currentWishlist = JSON.parse(localStorage.getItem("indexWishlist")) || {};
 
       currentWishlist[id] = { status: newStatus };
-      localStorage.setItem("toyHavenWishlist", JSON.stringify(currentWishlist));
+      localStorage.setItem("indexWishlist", JSON.stringify(currentWishlist));
 
       // Dynamically update background styling class
       e.target.className = `status-selector status-${newStatus.toLowerCase().replace(/\s+/g, '-')}`;
@@ -394,9 +394,9 @@ function renderWishlistPage() {
   container.querySelectorAll(".remove-wishlist-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const id = e.target.getAttribute("data-id");
-      const currentWishlist = JSON.parse(localStorage.getItem("toyHavenWishlist")) || {};
+      const currentWishlist = JSON.parse(localStorage.getItem("indexWishlist")) || {};
       delete currentWishlist[id];
-      localStorage.setItem("toyHavenWishlist", JSON.stringify(currentWishlist));
+      localStorage.setItem("indexWishlist", JSON.stringify(currentWishlist));
       renderWishlistPage();
     });
   });
@@ -424,9 +424,9 @@ function initNewsletter() {
       const email = emailInput.value.trim();
 
       if (email) {
-        let subscribers = JSON.parse(localStorage.getItem("toyHavenSubscribers")) || [];
+        let subscribers = JSON.parse(localStorage.getItem("indexSubscribers")) || [];
         subscribers.push({ email: email, date: new Date().toISOString() });
-        localStorage.setItem("toyHavenSubscribers", JSON.stringify(subscribers));
+        localStorage.setItem("indexSubscribers", JSON.stringify(subscribers));
 
         if (newsletterMsg) {
           newsletterMsg.textContent = "Thank you for subscribing!";
@@ -537,7 +537,7 @@ function renderCartTable() {
   if (clearCartBtn) {
     clearCartBtn.addEventListener("click", () => {
       if (confirm("Are you sure you want to clear your entire cart?")) {
-        localStorage.removeItem("toyHavenCart");
+        localStorage.removeItem("indexCart");
         renderCartTable();
         updateCartBadge();
       }
@@ -556,7 +556,7 @@ function adjustQuantity(productId, delta) {
     }
   }
 
-  localStorage.setItem("toyHavenCart", JSON.stringify(cart));
+  localStorage.setItem("indexCart", JSON.stringify(cart));
   renderCartTable();
   updateCartBadge();
 }
@@ -564,7 +564,7 @@ function adjustQuantity(productId, delta) {
 function removeFromCart(productId) {
   let cart = getCartFromStorage();
   cart = cart.filter((item) => item.id !== productId);
-  localStorage.setItem("toyHavenCart", JSON.stringify(cart));
+  localStorage.setItem("indexCart", JSON.stringify(cart));
   renderCartTable();
   updateCartBadge();
 }
@@ -590,7 +590,7 @@ function initCheckoutPage() {
   const finalTotalEl = document.getElementById("checkout-final-total");
   const form = document.getElementById("checkout-form");
 
-  const cart = JSON.parse(localStorage.getItem("toyHavenCart")) || [];
+  const cart = JSON.parse(localStorage.getItem("indexCart")) || [];
 
   if (cart.length === 0 && checkoutList) {
     checkoutList.innerHTML = "<li>Your cart is empty. Please add products first.</li>";
@@ -671,7 +671,7 @@ function processOrderSubmit() {
   const address = document.getElementById("address").value;
   const payment = document.querySelector('input[name="payment"]:checked').value;
 
-  const cart = JSON.parse(localStorage.getItem("toyHavenCart")) || [];
+  const cart = JSON.parse(localStorage.getItem("indexCart")) || [];
   const orderId = "TH-" + Math.floor(100000 + Math.random() * 900000);
 
   const orderData = {
@@ -683,12 +683,12 @@ function processOrderSubmit() {
   };
 
   // Save order history in localStorage
-  let orders = JSON.parse(localStorage.getItem("toyHavenOrders")) || [];
+  let orders = JSON.parse(localStorage.getItem("indexOrders")) || [];
   orders.push(orderData);
-  localStorage.setItem("toyHavenOrders", JSON.stringify(orders));
+  localStorage.setItem("indexOrders", JSON.stringify(orders));
 
   // Clear cart
-  localStorage.removeItem("toyHavenCart");
+  localStorage.removeItem("indexCart");
   updateCartBadge();
 
   // Show Success Modal
@@ -748,9 +748,9 @@ function initFeedbackForm() {
         timestamp: new Date().toISOString()
       };
 
-      let existingFeedback = JSON.parse(localStorage.getItem("toyHavenFeedback")) || [];
+      let existingFeedback = JSON.parse(localStorage.getItem("indexFeedback")) || [];
       existingFeedback.push(feedbackData);
-      localStorage.setItem("toyHavenFeedback", JSON.stringify(existingFeedback));
+      localStorage.setItem("indexFeedback", JSON.stringify(existingFeedback));
 
       statusMsg.textContent = "Thank you! Your message has been sent successfully.";
       statusMsg.className = "status-message success";

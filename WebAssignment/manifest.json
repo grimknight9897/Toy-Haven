@@ -1,6 +1,6 @@
 {
   "name": "Toy Haven Online Store",
-  "short_name": "ToyHaven",
+  "short_name": "index",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
